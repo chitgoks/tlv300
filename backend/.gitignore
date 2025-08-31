@@ -1,6 +1,6 @@
 # Backend specific ignores
 /node_modules/
-.env
+#.env
 /logs/
 /dist/
 coverage/

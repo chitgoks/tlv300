@@ -8,8 +8,8 @@ node_modules/
 logs/
 
 # Environment files
-.env
-**/.env
+#.env
+#**/.env
 
 # OS generated files
 .DS_Store
