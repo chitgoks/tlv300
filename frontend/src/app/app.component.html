@@ -1,0 +1,50 @@
+<div class="whois-container">
+  <h2>WHOIS Lookup</h2>
+  <form class="whois-form" (ngSubmit)="lookup()">
+    <div class="form-group">
+      <label for="domain">Domain</label>
+      <input
+        id="domain"
+        type="text"
+        [(ngModel)]="domain"
+        name="domain"
+        placeholder="e.g. amazon.com"
+        autocomplete="off"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="type">Information Type</label>
+      <select id="type" [(ngModel)]="type" name="type">
+        <option value="domain">Domain Information</option>
+        <option value="contact">Contact Information</option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="loading">Search</button>
+  </form>
+
+  <div *ngIf="error" class="whois-error">{{ error }}</div>
+
+  <div *ngIf="loading && !error" class="whois-progress">
+    <div class="spinner"></div>
+    <div>Fetching data...</div>
+  </div>
+
+  <div *ngIf="!loading && result && !error" class="whois-results">
+    <h4>Results</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of keys(result)">
+          <td>{{ key }}</td>
+          <td>{{ result[key] || '-' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

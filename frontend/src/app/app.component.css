@@ -1,0 +1,150 @@
+/* Custom WHOIS Lookup Styles */
+.whois-container {
+  max-width: 900px;
+  margin: 48px auto;
+  background: #fff;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+
+.whois-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.whois-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1.2rem;
+  flex-wrap: nowrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 220px;
+  flex: 1 1 0;
+}
+.whois-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  font-size: 1.1rem;
+  color: #444;
+  min-height: 80px;
+}
+
+.whois-form label {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.whois-form input,
+.whois-form select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.whois-form input:focus,
+.whois-form select:focus {
+  border-color: #007bff;
+}
+
+.whois-form select {
+  width: auto;
+  min-width: 170px;
+}
+.whois-form button {
+  padding: 0.7rem 1.5rem;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.7rem;
+  margin: 0;
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .whois-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .form-group {
+    min-width: 0;
+  }
+  .whois-form button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+.whois-form button:disabled {
+  background: #b3d0f7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 1.2em;
+  height: 1.2em;
+  border: 2.5px solid #e0e0e0;
+  border-top: 2.5px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  margin-right: 0.7em;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.whois-error {
+  color: #b00020;
+  background: #ffeaea;
+  border: 1px solid #ffbdbd;
+  padding: 0.8rem 1rem;
+  border-radius: 7px;
+  margin-top: 1.2rem;
+  text-align: center;
+  font-size: 1.02rem;
+}
+
+.whois-results {
+  margin-top: 2.2rem;
+}
+.whois-results h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.whois-results table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fafbfc;
+  border-radius: 7px;
+  overflow: hidden;
+  font-size: 0.98rem;
+}
+.whois-results th, .whois-results td {
+  border: 1px solid #e0e0e0;
+  padding: 0.7rem 1rem;
+}
+.whois-results th {
+  background: #f3f6fa;
+  text-align: left;
+  font-weight: 500;
+}
