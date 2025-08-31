@@ -33,7 +33,13 @@ app.post('/api/whois', async (req, res) => {
         registrantName: record.registrant?.name || null,
         technicalContactName: record.technicalContact?.name || null,
         administrativeContactName: record.administrativeContact?.name || null,
-        contactEmail: record.technicalContact?.email || null
+        contactEmail: record.technicalContact?.email || null,
+        labels: {
+          registrantName: 'Registrant Name',
+          technicalContactName: 'Technical Contact Name',
+          administrativeContactName: 'Administrative Contact Name',
+          contactEmail: 'Contact Email'
+        }
       });
     } else {
       const hostnames = registry.nameServers?.hostNames || [];
@@ -59,14 +65,24 @@ app.post('/api/whois', async (req, res) => {
         const diffYears = diffMs / (1000 * 60 * 60 * 24 * 365.25);
         estimatedDomainAge = Math.floor(diffYears);
       }
+      // Calculate age of domain.
       estimatedDomainAge = estimatedDomainAge !== null ? estimatedDomainAge + ' years' : null;
+
       return res.json({
         domainName: domain,
         registrarName: record.registrarName || null,
         registrationDate: registry.createdDate || null,
         expirationDate: registry.expiresDate || null,
         estimatedDomainAge: estimatedDomainAge,
-        hostnames: hostnamesStr
+        hostnames: hostnamesStr,
+        labels: {
+          domainName: 'Domain Name',
+          registrarName: 'Registrar',
+          registrationDate: 'Registration Date',
+          expirationDate: 'Expiration Date',
+          estimatedDomainAge: 'Age',
+          hostnames: 'Hostnames'
+        }
       });
     }
   } catch (err) {

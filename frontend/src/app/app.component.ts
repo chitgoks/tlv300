@@ -55,7 +55,8 @@ export class AppComponent {
     });
   }
 
-  keys(obj: any) {
-    return obj ? Object.keys(obj) : [];
+  // Do not include the labels key when looping whois properties.
+  keys(obj: any): string[] {
+    return Object.keys(obj).filter(key => key !== 'labels');
   }
 }

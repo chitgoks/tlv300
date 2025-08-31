@@ -41,7 +41,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let key of keys(result)">
-          <td>{{ key }}</td>
+          <td>{{ result['labels'][key] }}</td>
           <td>{{ result[key] || '-' }}</td>
         </tr>
       </tbody>
